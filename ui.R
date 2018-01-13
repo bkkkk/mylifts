@@ -4,7 +4,7 @@ library(DT)
 library(plotly)
 
 source("R/ui/tab-summary.R", local = TRUE)
-source("R/ui/tab-personal-records.R")
+source("R/ui/tab-personal-records.R", local = TRUE)
 source("R/ui/tab-exercise-progress.R", local = TRUE)
 source("R/ui/tab-volume-tracking.R", local = TRUE)
 source("R/ui/tab-configure.R", local = TRUE)
