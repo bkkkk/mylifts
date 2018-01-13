@@ -6,6 +6,7 @@ library(plotly)
 source("R/ui/tab-summary.R", local = TRUE)
 source("R/ui/tab-personal-records.R")
 source("R/ui/tab-exercise-progress.R", local = TRUE)
+source("R/ui/tab-volume-tracking.R", local = TRUE)
 source("R/ui/tab-configure.R", local = TRUE)
 source("R/ui/tab-raw-data.R", local = TRUE)
 
@@ -16,6 +17,7 @@ dashboardPage(
       menuItem(text = "Summary", tabName = "summary"),
       menuItem(text = "Personal Records", tabName = "personal_records"),
       menuItem(text = "Exercise Progress", tabName = "weekly_exercise_progress"),
+      menuItem(text = "Volume Tracking", tabName = "volume_tracking"),
       menuItem(text = "Raw Data", tabName = "raw_data"),
       menuItem(text = "Configure", tabName = "configure", icon = icon("gear"))
     )
@@ -25,6 +27,7 @@ dashboardPage(
       tab_summary,
       tab_exercise_progress,
       tab_personal_records,
+      tab_volume_tracking,
       tab_raw_data,
       tab_configure
     )
