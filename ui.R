@@ -1,7 +1,7 @@
 library(shiny)
 library(shinydashboard)
 library(DT)
-library(highcharter)
+library(plotly)
 
 source("R/ui/tab-summary.R", local = TRUE)
 source("R/ui/tab-personal-records.R")
@@ -15,7 +15,7 @@ dashboardPage(
     sidebarMenu(
       menuItem(text = "Summary", tabName = "summary"),
       menuItem(text = "Personal Records", tabName = "personal_records"),
-      menuItem(text = "Exercise Progress", tabName = "weekly_excercise_progress"),
+      menuItem(text = "Exercise Progress", tabName = "weekly_exercise_progress"),
       menuItem(text = "Raw Data", tabName = "raw_data"),
       menuItem(text = "Configure", tabName = "configure", icon = icon("gear"))
     )

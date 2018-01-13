@@ -1,5 +1,5 @@
 tab_exercise_progress <- tabItem(
-  "exercise_progress",
+  "weekly_exercise_progress",
   fluidRow(
     box(
       width = 12,
@@ -15,7 +15,7 @@ tab_exercise_progress <- tabItem(
     box(
       width = 12,
       title = "Weekly Progress",
-      highchartOutput("plot_weekly_exercise", height = 400)
+      plotlyOutput("plot_weekly_exercise", height = 400)
     )
   )
 )

@@ -25,5 +25,6 @@ shinyServer(function(input, output, session) {
 
   source("R/server/output/output-weekly-progress.R", local = TRUE)
   source("R/server/output/output-raw-data.R", local = TRUE)
+  source("R/server/output/output-weekly-progress.R", local = TRUE)
   source("R/server/output/output-personal-records.R", local = TRUE)
 })
