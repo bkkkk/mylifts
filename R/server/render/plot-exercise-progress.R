@@ -1,16 +1,8 @@
-build_summary_hover <- function(exercise, date, total_volume, max_weight) {
-  glue::glue(
-    "{exercise} ({date})<br>",
-    "<b>Total Volume: </b>{total_volume} kg<br>",
-    "<b>Avg. Weight: </b>{max_weight} kg"
-  )
-}
-
 plot_exercise_progress <- function(.data, show_sets = FALSE) {
   pointFormat <- "Set {point.set}: {point.reps} × {point.weight} kg ({point.set_type})"
-
+  
   .data <- mutate(.data, exercise = tools::toTitleCase(exercise))
-  details <- unnest(select(.data, date, data))
+  details <- unnest(select(.data, exercise, date, data))
   
   p <- plot_ly(colors = "Dark2", color = ~exercise)
   p <- add_lines(
@@ -25,6 +17,13 @@ plot_exercise_progress <- function(.data, show_sets = FALSE) {
     ),
     type = 'scatter', mode = 'lines'
   )
+  p <- add_markers(
+    p,
+    data = details,
+    x = ~date,
+    y = ~weight,
+    size = ~reps,
+    type = "scatter"
   )
   p <- layout(
     p,
