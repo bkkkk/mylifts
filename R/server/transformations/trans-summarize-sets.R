@@ -6,7 +6,8 @@ summarize_sets <- function(.data, method) {
   
   result <- summary_fn(.data)
   
-  result <- nest(result, id, set, weight, reps, set_type)
+  result <- mutate(result, intensity = intensity_label(reps))
+  result <- nest(result, id, set, weight, reps, intensity, set_type)
   result <- arrange(result, date, exercise_id)
   result <- mutate(result, lift_id = paste0(as.numeric(date), exercise_id))
   result <- select(result, -variant)
