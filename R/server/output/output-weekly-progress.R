@@ -1,4 +1,4 @@
-output$plot_weekly_exercise <- renderHighchart({
+output$plot_weekly_exercise <- renderPlotly({
   show_sets <- input$weekly_progress_show_sets
 
   plot_exercise_progress(weekly_progress_data(), show_sets = show_sets)
