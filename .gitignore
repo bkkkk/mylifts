@@ -3,3 +3,4 @@
 .R*
 *.Rproj
 *.rds
+.Rproj.user
