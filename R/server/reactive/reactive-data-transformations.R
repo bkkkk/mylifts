@@ -1,3 +1,5 @@
+source("R/server/transformations/trans-summarize-sets.R")
+
 summarized_sets_data <- reactive({
   summarize_sets(raw_weights_data(), method = input$config_summary_method)
 })
