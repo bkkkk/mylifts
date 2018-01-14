@@ -12,12 +12,19 @@ plot_exercise_progress <- function(.data, show_sets = FALSE) {
   .data <- mutate(.data, exercise = tools::toTitleCase(exercise))
   details <- unnest(select(.data, date, data))
   
-  p <- plot_ly(
-    .data,
-    x = ~date, y = ~max_weight, color = ~exercise,
+  p <- plot_ly(colors = "Dark2", color = ~exercise)
+  p <- add_lines(
+    p,
+    data = .data,
+    x = ~date, y = ~max_weight,
     hoverinfo = "text",
-    text = ~build_summary_hover(exercise, date, total_volume, max_weight),
-    type = 'scatter', mode = 'lines', colors = "Dark2"
+    text = ~paste0(
+      exercise, "(", date, ")<br>",
+      "<b>Total Volume: </b>", total_volume, " kg<br>",
+      "<b>Avg. Weight: </b>", max_weight, "kg)"
+    ),
+    type = 'scatter', mode = 'lines'
+  )
   )
   p <- layout(
     p,
